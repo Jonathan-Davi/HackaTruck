@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                LinearGradient(colors: [.fundo2, .fundo1, .fundo3], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [.fundo2, .fundo3, .fundo3], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                 VStack{
                     Image("capa")

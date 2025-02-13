@@ -13,7 +13,7 @@ struct Detalhe: View {
 
     var body: some View {
         ZStack{
-            LinearGradient(colors: [.fundo1, .fundo2, .fundo3], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [.fundo1, .fundo3, .fundo3], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             VStack{
                 AsyncImage(url: URL(string: musica.capa)){

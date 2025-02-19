@@ -1,0 +1,238 @@
+[
+    {
+        "id": "e221987b5b47ba0e",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d66c8584af78aaee",
+        "type": "http in",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "url": "/lerDados",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 140,
+        "wires": [
+            [
+                "d5e1bbc89d2bd4da"
+            ]
+        ]
+    },
+    {
+        "id": "213c6b8f9e699731",
+        "type": "http response",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 590,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "99bacd59ee8c8dff",
+        "type": "cloudantplus out",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "cloudant": "844bf74eb3aa8550",
+        "database": "jonathandavi2",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 600,
+        "y": 280,
+        "wires": [
+            [
+                "7fc2f602b03f37ec"
+            ]
+        ]
+    },
+    {
+        "id": "d5e1bbc89d2bd4da",
+        "type": "cloudantplus in",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "cloudant": "844bf74eb3aa8550",
+        "database": "jonathandavi2",
+        "service": "_ext_",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "213c6b8f9e699731"
+            ]
+        ]
+    },
+    {
+        "id": "f47ab30f618a37a0",
+        "type": "http in",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "url": "/salvarDados",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 280,
+        "wires": [
+            [
+                "b91d4325cbc125cd",
+                "e4eef6e8ae405792"
+            ]
+        ]
+    },
+    {
+        "id": "7fc2f602b03f37ec",
+        "type": "http response",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b91d4325cbc125cd",
+        "type": "debug",
+        "z": "e221987b5b47ba0e",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "2f38bb0675fec248",
+        "type": "http in",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "url": "/deletarDados",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 360,
+        "wires": [
+            [
+                "83efabe5e6021c50"
+            ]
+        ]
+    },
+    {
+        "id": "b8802e681268e180",
+        "type": "http response",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "83efabe5e6021c50",
+        "type": "cloudantplus out",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "cloudant": "844bf74eb3aa8550",
+        "database": "jonathandavi2",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "b8802e681268e180"
+            ]
+        ]
+    },
+    {
+        "id": "0e9ab34342a51063",
+        "type": "http in",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "url": "/atualizarDados",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 420,
+        "wires": [
+            [
+                "c4be7243292d1965"
+            ]
+        ]
+    },
+    {
+        "id": "c4be7243292d1965",
+        "type": "cloudantplus out",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "cloudant": "844bf74eb3aa8550",
+        "database": "jonathandavi2",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 440,
+        "y": 420,
+        "wires": [
+            [
+                "dc98664b8cff1471"
+            ]
+        ]
+    },
+    {
+        "id": "dc98664b8cff1471",
+        "type": "http response",
+        "z": "e221987b5b47ba0e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "e4eef6e8ae405792",
+        "type": "function",
+        "z": "e221987b5b47ba0e",
+        "name": "function 1",
+        "func": "var myArray = context.get(\"myArray\");\n\nif (!myArray) {\n    console.log(\"Set the array on context memory\");\n    context.set(\"myArray\", []);\n    myArray = context.get(\"myArray\");\n}\n\nmyArray.push(msg.payload);\nmsg.payload = myArray;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "99bacd59ee8c8dff"
+            ]
+        ]
+    },
+    {
+        "id": "844bf74eb3aa8550",
+        "type": "cloudantplus",
+        "host": "https://f1c0dcf9-5075-4061-a1f8-2f4ca596058a-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "",
+        "useapikey": true
+    }
+]

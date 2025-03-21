@@ -50,7 +50,3 @@ Para mais informações sobre o programa HackaTruck, visite o [site oficial](htt
 ## Autor
 
 - **Jonathan Davi** - [GitHub](https://github.com/Jonathan-Davi)
-
-## Licença
-
-Este projeto está licenciado sob os termos da licença MIT.
